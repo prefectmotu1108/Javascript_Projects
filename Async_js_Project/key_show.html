@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Presser</title>
+
+    <style>
+      .container {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Press any key</h1>
+      <div id="results"></div>
+    </div>
+  </body>
+
+  <script>
+    const results = document.querySelector("#results");
+    window.addEventListener("keydown", (e) => {
+      results.innerHTML = `Key Pressed: ${e.key}, Key Code: ${e.keyCode}`;
+    });
+  </script>
+</html>

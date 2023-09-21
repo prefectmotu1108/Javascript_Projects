@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Click on buttons below!</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // function mohit() {
+    //   console.log("mohit");
+    // }
+
+    // let intervalid;
+
+    // const timely = function () {
+    //   intervalid = setInterval(mohit, 1000);
+    // };
+
+    // document.querySelector("#start").addEventListener("click", function () {
+    //   timely();
+    // });
+
+    // document.querySelector("#stoped").addEventListener("click", function () {
+    //   console.log("Entered");
+    //   clearInterval(intervalid);
+    //   console.log("Exit");
+    // });
+    const randomColor = function () {
+      const hex = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+
+    console.log(randomColor());
+    let intervalid;
+    const startChanging = function () {
+      // intervalid = setInterval(changeBgcolor, 1000);
+      // if statement isiliye likha ki jab intervalid null hogi to wo chalega nahi, this shows professionalism
+      //if se agar humne start ko wapas dabaye to wo fhirse chalu nahi hoga
+
+      if (!intervalid) {
+        intervalid = setInterval(changeBgcolor, 1000);
+      }
+      function changeBgcolor() {
+        document.body.style.backgroundColor = randomColor();
+      }
+    };
+
+    const stopChanging = function () {
+      clearInterval(intervalid);
+      //   next line shows professionalism ki use hone ke baad humne varibale ko free kar diya jisse thodi memory bhi save hui hai
+      intervalid = null;
+      document.body.style.backgroundColor = "#fff";
+    };
+
+    document.querySelector("#start").addEventListener("click", startChanging);
+
+    document.querySelector("#stop").addEventListener("click", stopChanging);
+  </script>
+</html>
